@@ -48,3 +48,12 @@ Thumbs.db
 *.mov
 *.wmv
 
+/JAVAIII-DAY1/nbproject/private/
+/JAVAIII-DAY1/build/
+/JavaIII-MINMAX/nbproject/private/
+/JavaIII-MINMAX/build/
+/JavaIIIDATAFROMFILE/nbproject/private/
+/JavaIIIDATAFROMFILE/build/
+/JavaIIISortFromFileAttempt/nbproject/private/
+/JavaIIISortFromFileAttempt/build/
+/JavaIIISortFromFileAnswer/nbproject/private/
