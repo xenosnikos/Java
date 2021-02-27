@@ -2,6 +2,7 @@
 package javaiii.weekendhomework;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,14 +11,17 @@ static Scanner input = new Scanner(System.in);
     
 
     public static void addThing(){
-        try{
+        
             
        
-        Todo newThing = new Todo;
+        Todo newThing  ;// to be initiated
+        
         System.out.println("Please Describe the Task");
         newThing.task = input.nextLine();
-        
-    }catch()
+        System.out.println("Please Enter the date for this");
+        newThing.dueDate = input.nextDate(); // ?????????
+        System.out.println("How many hours do you think this will take?");
+        newThing.hoursOfWork= input.nextInt();
          }
     
 
