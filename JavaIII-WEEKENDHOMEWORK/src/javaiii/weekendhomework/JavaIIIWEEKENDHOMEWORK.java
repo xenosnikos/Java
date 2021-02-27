@@ -13,8 +13,9 @@ static ArrayList<Todo> todoList = new ArrayList<>();
     public static void addThing(){
         
             
-       
-        Todo newThing  ;// to be initiated
+        System.out.println("What Would you like to call this?");
+        
+        Todo newThing= new Todo(String task,date dueDate,int hoursOfWork);
         
         System.out.println("Please Describe the Task");
         newThing.task = input.nextLine();
@@ -29,11 +30,14 @@ static ArrayList<Todo> todoList = new ArrayList<>();
 
     public static void listThings(){
         for(int i=0;1<todoList.size();i++){
-        System.out.println(i + ": "+ todoList.get(i));
+        System.out.println(i + ": "+ todoList.get(i).task);
     }
     }
     public static void deleteThing(){
-        
+        System.out.println("What item would you like to remove?");
+         for(int i=0;1<todoList.size();i++){
+        System.out.println(i + ": "+ todoList.get(i).task);
+    }
     }
     public static void modifyThing(){
         
