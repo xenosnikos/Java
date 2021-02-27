@@ -14,6 +14,7 @@ public class JavaIIISortFromFileAttempt {
     public static void main(String[] args) {
 
     {   
+        int totalWordLength=0;
         BufferedReader reader = null; 
          
         BufferedWriter writer = null;
@@ -37,7 +38,10 @@ public class JavaIIISortFromFileAttempt {
                 lines.add(currentLine);
                  
                 currentLine = reader.readLine();
+            //    totalWordLength += currentLine.length();
             }
+            
+           //int averageLength= Math.round(totalWordLength/(double)lines.size());
              
             //Sorting the ArrayList
              
@@ -47,6 +51,7 @@ public class JavaIIISortFromFileAttempt {
              System.out.println(lines.subList(0,6));
              System.out.println("Names:");
              System.out.println(lines.subList(6, 15));
+             System.out.println("");
             
         } 
         catch (IOException e) 
