@@ -5,6 +5,12 @@ import java.util.Date;
 
 public class Todo {
 
+    public Todo(String task, Date dueDate, int hoursOfWork) {
+        this.task = task;
+        this.dueDate = dueDate;
+        this.hoursOfWork = hoursOfWork;
+    }
+
     String task;
     Date dueDate;
     int hoursOfWork;
@@ -31,13 +37,13 @@ public class Todo {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+   /* public void setDueDate(Date dueDate) {
         if(dueDate(year)<1900|| dueDate(year)>2100){
             throw new InvalidParameterException("You Have entered an unacheivable year");
         }
         this.dueDate = dueDate;
     }
-
+*/
     public int getHoursOfWork() {
         return hoursOfWork;
     }

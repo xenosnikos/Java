@@ -7,6 +7,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class JavaIIIWEEKENDHOMEWORK {
+
+//Global Ressources
 static Scanner input = new Scanner(System.in);
 static ArrayList<Todo> todoList = new ArrayList<>();    
 
@@ -25,6 +27,7 @@ static ArrayList<Todo> todoList = new ArrayList<>();
         newThing.hoursOfWork= input.nextInt();
         
         todoList.add(newThing);
+
          }
     
 
@@ -37,10 +40,17 @@ static ArrayList<Todo> todoList = new ArrayList<>();
         System.out.println("What item would you like to remove?");
          for(int i=0;1<todoList.size();i++){
         System.out.println(i + ": "+ todoList.get(i).task);
+        todoList.remove(input.nextInt());
     }
     }
     public static void modifyThing(){
+        System.out.println("What item would you like to Modify?");
+         for(int i=0;1<todoList.size();i++){
+        System.out.println(i + ": "+ todoList.get(i).task);
+        todoList.remove(input.nextInt());
+        addThing();
         
+    }
     }
     public static void runProg() {
         
@@ -80,9 +90,9 @@ static ArrayList<Todo> todoList = new ArrayList<>();
                             break;
                         
                         default: System.out.println("");
+                    }    
                         
-                        
-                    }
+                    
                 }System.out.print("--->");
                      mainChoice = input.nextInt();
                      if(mainChoice<0||mainChoice>4){
