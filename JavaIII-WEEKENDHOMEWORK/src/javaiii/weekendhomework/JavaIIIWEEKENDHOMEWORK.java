@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class JavaIIIWEEKENDHOMEWORK {
 static Scanner input = new Scanner(System.in);
-    
+static ArrayList<Todo> todoList = new ArrayList<>();    
 
     public static void addThing(){
         
@@ -22,11 +22,15 @@ static Scanner input = new Scanner(System.in);
         newThing.dueDate = input.nextDate(); // ?????????
         System.out.println("How many hours do you think this will take?");
         newThing.hoursOfWork= input.nextInt();
+        
+        todoList.add(newThing);
          }
     
 
     public static void listThings(){
-        
+        for(int i=0;1<todoList.size();i++){
+        System.out.println(i + ": "+ todoList.get(i));
+    }
     }
     public static void deleteThing(){
         
