@@ -15,7 +15,7 @@ static ArrayList<Todo> todoList = new ArrayList<>();
     public static void addThing(){
         
             
-        System.out.println("What Would you like to call this?");
+        
         
         Todo newThing= new Todo(task,dueDate,hoursOfWork);//must fix
         
