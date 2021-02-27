@@ -17,12 +17,12 @@ static ArrayList<Todo> todoList = new ArrayList<>();
             
         
         
-        Todo newThing= new Todo(task,dueDate,hoursOfWork);//must fix
+        Todo newThing= new Todo();
         
         System.out.println("Please Describe the Task");
         newThing.task = input.nextLine();
         System.out.println("Please Enter the date for this");
-        newThing.dueDate = input.nextDate(); // must fix
+        newThing.dueDate =  input.next(); // must fix
         System.out.println("How many hours do you think this will take?");
         newThing.hoursOfWork= input.nextInt();
         
