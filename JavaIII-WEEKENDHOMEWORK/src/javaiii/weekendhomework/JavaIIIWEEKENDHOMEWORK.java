@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class JavaIIIWEEKENDHOMEWORK {
 
 //Global Ressources
+static int i = 0;
 static Scanner input = new Scanner(System.in);
 static ArrayList<Todo> todoList = new ArrayList<>();    
 
@@ -22,7 +23,7 @@ static ArrayList<Todo> todoList = new ArrayList<>();
         System.out.println("Please Describe the Task");
         newThing.task = input.nextLine();
         System.out.println("Please Enter the date for this");
-        newThing.dueDate =  input.next(); // must fix
+        //newThing.dueDate =  input.next(); // must fix
         System.out.println("How many hours do you think this will take?");
         newThing.hoursOfWork= input.nextInt();
         
@@ -39,7 +40,7 @@ static ArrayList<Todo> todoList = new ArrayList<>();
     public static void deleteThing(){
         System.out.println("What item would you like to remove?");
          for(int i=0;1<todoList.size();i++){
-        System.out.println(i + ": "+ todoList.get(i).task);
+        System.out.println("#"+ i + ": "+ todoList.get(i).task);
         todoList.remove(input.nextInt());
     }
     }

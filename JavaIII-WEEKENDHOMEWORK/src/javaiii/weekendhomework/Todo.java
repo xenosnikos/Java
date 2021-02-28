@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Todo {
 
-    public Todo(String task, Date dueDate, int hoursOfWork) {
+     Todo(String task, Date dueDate, int hoursOfWork) {
         this.task = task;
         this.dueDate = dueDate;
         this.hoursOfWork = hoursOfWork;
@@ -16,6 +16,10 @@ public class Todo {
     int hoursOfWork;
     //   status
     //    enum TaskStatus {PEnding, Done };
+
+    Todo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public String getTask() {
         return task;
