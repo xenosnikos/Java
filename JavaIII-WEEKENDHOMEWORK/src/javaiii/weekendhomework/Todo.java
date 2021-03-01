@@ -5,22 +5,22 @@ import java.util.Date;
 
 public class Todo {
 
-     Todo(String task, Date dueDate, int hoursOfWork) {
-        this.task = task;
-        this.dueDate = dueDate;
-        this.hoursOfWork = hoursOfWork;
-    }
-
     String task;
     Date dueDate;
     int hoursOfWork;
+
     //   status
     //    enum TaskStatus {PEnding, Done };
-
-    Todo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Todo(String task, Date dueDate, int hoursOfWork) {
+        setTask(task);
+        setDueDate(dueDate);
+        setHoursOfWork(hoursOfWork);
     }
 
+ /*   Todo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+*/
     public String getTask() {
         return task;
     }
@@ -29,7 +29,8 @@ public class Todo {
 
         if (task.length() < 2 || task.length() > 50) {
             throw new InvalidParameterException("Task must be 2 - 50 characters long ");
-        } else if (task.contains(";")|| task.contains("`")){
+            
+        } else if (task.contains(";") || task.contains("`")) {
             throw new InvalidParameterException("You Have Entered an Invalid Character");
         }
 
@@ -41,19 +42,25 @@ public class Todo {
         return dueDate;
     }
 
-   /* public void setDueDate(Date dueDate) {
-        if(dueDate(year)<1900|| dueDate(year)>2100){
+     public void setDueDate(Date dueDate) {
+       /* if(dueDate(year)<1900|| dueDate(year)>2100){
             throw new InvalidParameterException("You Have entered an unacheivable year");
         }
-        this.dueDate = dueDate;
+        this.dueDate = dueDate; */
     }
-*/
+    
     public int getHoursOfWork() {
         return hoursOfWork;
     }
 
     public void setHoursOfWork(int hoursOfWork) {
         this.hoursOfWork = hoursOfWork;
+    }
+
+    @Override
+    public String toString() {
+       // return "Todo{" + "task=" + task + ", dueDate=" + dueDate + ", hoursOfWork=" + hoursOfWork + '}';
+       return String.format("%s, due on '%ty/%tm/%td, will take %d hours of work", task, dueDate,dueDate,dueDate, hoursOfWork);
     }
 
 }
