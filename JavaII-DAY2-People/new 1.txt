@@ -1,0 +1,29 @@
+flix compny 
+
+schema table
+sales 	customers
+		orders
+		Transactions
+production
+		dvds
+		Studios 
+human resources
+		participants 
+		
+create object_type object_name
+
+create schema sales
+
+create table Schema_nme.table_nme
+create tables Sales.Customers
+( )
+serlect*
+fSal.Customcrelect* 
+from dbo.DVDs
+
+select * 
+from 
+Fully Qualified name
+server_name_database_name.object_name.column_n
+
+

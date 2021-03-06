@@ -1,13 +1,27 @@
 package javaiii.weekendhomework;
 
 import java.security.InvalidParameterException;
+import java.util.Calendar;
 import java.util.Date;
+
+
+
+
 
 public class Todo {
 
     String task;
     Date dueDate;
     int hoursOfWork;
+    TaskStatus  status;
+
+   
+
+   
+    
+    enum TaskStatus {
+        PENDING, DONE
+    }
 
     //   status
     //    enum TaskStatus {PEnding, Done };
@@ -15,8 +29,15 @@ public class Todo {
         setTask(task);
         setDueDate(dueDate);
         setHoursOfWork(hoursOfWork);
+        setStatus(status);
+    }
+ public TaskStatus getStatus() {
+        return status;
     }
 
+    public void setStatus(TaskStatus status) {
+        this.status = status;
+    }
  /*   Todo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -43,10 +64,13 @@ public class Todo {
     }
 
      public void setDueDate(Date dueDate) {
-       /* if(dueDate(year)<1900|| dueDate(year)>2100){
-            throw new InvalidParameterException("You Have entered an unacheivable year");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dueDate);
+        int year = cal.get(Calendar.YEAR);
+        if (year < 1900 || year > 2100) { // error
+            throw new IllegalArgumentException("Year must be 1900 to 2100");
         }
-        this.dueDate = dueDate; */
+        this.dueDate = dueDate;
     }
     
     public int getHoursOfWork() {
@@ -62,5 +86,19 @@ public class Todo {
        // return "Todo{" + "task=" + task + ", dueDate=" + dueDate + ", hoursOfWork=" + hoursOfWork + '}';
        return String.format("%s, due on '%ty/%tm/%td, will take %d hours of work", task, dueDate,dueDate,dueDate, hoursOfWork);
     }
+    public String toDataString(){
+        String []data = dataLine.split(";");
+        if(data.length !=4){
+            throw new IllegalArgumentException("Invalid number of items in line");
+        }
+                String dueDateStr = dateFormatFile.format(dueDate);
+        return String.format("%s; '%ty/%tm/%td;%d", task, dueDate,dueDate,dueDate, hoursOfWork, status);
+    }
+
+    public Todo(String dataLine){
+    
+    //dataline.split(";");
+    
+}
 
 }

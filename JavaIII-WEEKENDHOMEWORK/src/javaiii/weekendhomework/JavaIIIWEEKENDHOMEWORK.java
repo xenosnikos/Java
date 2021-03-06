@@ -1,6 +1,11 @@
 
 package javaiii.weekendhomework;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,7 +29,7 @@ public static void runProg() throws ParseException {
         
 //Main Interface
         try  {
-
+            loadDataFromFile();
             do {System.out.println("");
                 System.out.println("Please Make a Choice [0-4]");
                 System.out.println("0 to exit");
@@ -44,7 +49,8 @@ public static void runProg() throws ParseException {
                             break;
                         case 4:modifyThing();
                             break;
-                        case 0:System.out.println("Exiting Program");
+                        case 0:saveDataToFile();
+                            System.out.println("Exiting Program");
                                 
                             break;
                         
@@ -77,6 +83,7 @@ public static void runProg() throws ParseException {
         
         System.out.println("Please Describe the Task");
         String task = input.nextLine();
+        
         System.out.println("Please Enter the date for this");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
        // String dateInput = ;
@@ -124,16 +131,49 @@ public static void runProg() throws ParseException {
         
     }
     }
-    static void loadDataFromFile(){
-        
+    static final String DATA_FILE_NAME ="Todo.txt";
+    
+    static void loadDataFromFile() {
+        try (Scanner fileInput = new Scanner(new File(DATA_FILE_NAME))){ // FileNotfoundException
+            while (fileInput.hasNextLine()) {
+                String dataLine = fileInput.nextLine();
+                Todo item = new Todo(dataLine);
+                todoList.add(item);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not found");
+        }
     }
-    static void saveDataToFile(){
-        
+     //Saving to File
+    static void saveDataToFile() {
+        File saveFile = new File(DATA_FILE_NAME);
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(saveFile.getAbsolutePath())))  {
+            for (Todo item : todoList) {
+                writer.write(item.toDataString() + "\n");
+            }
+            
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+              }
     }
     
+    
     static int  inputInt() { 
-    return 6;
+   while(true){
+        try{ int result = input.nextInt();
+    input.nextLine();// consume leftover line
+    return result;
+    }catch(InputMismatchException ex){
+        System.out.println("Invalid Input");
+        input.nextLine();//consumes invalid input 
+        
+            }
+        }
     }
+    
     public static void main(String[] args) throws ParseException {
         runProg();
         
