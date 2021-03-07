@@ -87,6 +87,12 @@ public class JAVAIII_TicTacToe extends javax.swing.JFrame {
             winEffect(bt3_3, bt2_3, bt3_3);
             winPopUp();
         }
+        //TIE
+        else if(!bt1_1.getText().equals("")&&!bt1_2.getText().equals("")&&!bt1_3.getText().equals("")&&!bt2_1.getText().equals("")&&!bt2_2.getText().equals("")&&!bt2_3.getText().equals("")
+                &&!bt3_1.getText().equals("")&&!bt3_2.getText().equals("")&&!bt3_3.getText().equals("")){
+             String msg = " IT'S A TIE! ";
+            JOptionPane.showMessageDialog(this, msg);
+        }
     }
 //create action 
 //     
