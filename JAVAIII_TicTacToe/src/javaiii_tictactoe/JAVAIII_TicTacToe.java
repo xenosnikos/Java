@@ -26,66 +26,72 @@ public class JAVAIII_TicTacToe extends javax.swing.JFrame {
         addAction();
 
     }
-    public void winPopUp(){
-        String msg = String.format(" %S WINS!", lblCurrentPlayer.getText());
-        JOptionPane.showMessageDialog(this, msg);
+
+    public void winPopUp() {
+        if (lblCurrentPlayer.getText() == "X") {
+            String msg = " O WINS!";
+            JOptionPane.showMessageDialog(this, msg);
+        } else {
+            String msg = " X WINS!";
+            JOptionPane.showMessageDialog(this, msg);
+        }
     }
 
     public void winEffect(JButton b1, JButton b2, JButton b3) {
-        b1.setBackground(Color.pink);
-        b2.setBackground(Color.pink);
-        b3.setBackground(Color.pink);
-        b1.setForeground(Color.red);
-        b2.setForeground(Color.red);
-        b3.setForeground(Color.red);
+        b1.setBackground(Color.green);
+        b2.setBackground(Color.green);
+        b3.setBackground(Color.green);
+        b1.setForeground(Color.white);
+        b2.setForeground(Color.white);
+        b3.setForeground(Color.white);
     }
 
     public void getTheWinner() {
         //first line across
         if (!bt1_1.getText().equals("") && bt1_1.getText().equals(bt1_2.getText()) && bt1_1.getText().equals(bt1_3.getText())) {
             winEffect(bt1_1, bt1_2, bt1_3);
-            
+            winPopUp();
         }
         //second  line across
         if (!bt2_1.getText().equals("") && bt2_1.getText().equals(bt2_2.getText()) && bt2_1.getText().equals(bt2_3.getText())) {
             winEffect(bt2_1, bt2_2, bt2_3);
-            
-            
+            winPopUp();
         }
         //third line across
         if (!bt3_1.getText().equals("") && bt3_1.getText().equals(bt1_2.getText()) && bt3_1.getText().equals(bt1_3.getText())) {
             winEffect(bt3_1, bt3_2, bt3_3);
-            
+            winPopUp();
         }
         //top left to bottom right
         if (!bt1_1.getText().equals("") && bt1_1.getText().equals(bt2_2.getText()) && bt1_1.getText().equals(bt3_3.getText())) {
             winEffect(bt1_1, bt2_2, bt3_3);
-            
+            winPopUp();
         }
         //top right to bottom left
         if (!bt1_3.getText().equals("") && bt1_3.getText().equals(bt2_2.getText()) && bt1_3.getText().equals(bt3_1.getText())) {
             winEffect(bt1_3, bt2_2, bt3_1);
-            
+            winPopUp();
         }
         //first row across
         if (!bt1_1.getText().equals("") && bt1_1.getText().equals(bt2_1.getText()) && bt1_1.getText().equals(bt3_1.getText())) {
             winEffect(bt1_1, bt2_1, bt3_1);
-            
+            winPopUp();
         }
         //second row across
         if (!bt1_2.getText().equals("") && bt1_2.getText().equals(bt2_2.getText()) && bt1_2.getText().equals(bt3_2.getText())) {
             winEffect(bt1_2, bt2_2, bt3_2);
-            
+            winPopUp();
         }
         //third line across
         if (!bt1_3.getText().equals("") && bt1_3.getText().equals(bt2_3.getText()) && bt1_3.getText().equals(bt3_3.getText())) {
             winEffect(bt3_3, bt2_3, bt3_3);
-            
+            winPopUp();
         }
     }
 //create action 
 //     
     int turn = 0;
+    int counter;
 
     public ActionListener createAction(JButton button) {
         ActionListener al = new ActionListener() {
@@ -106,6 +112,9 @@ public class JAVAIII_TicTacToe extends javax.swing.JFrame {
                 }
 
                 turn++;
+                counter++;
+                String countStr = String.format("%d", counter);
+                lblCurrentTurn.setText(countStr);
             }
 
         };
@@ -120,6 +129,7 @@ public class JAVAIII_TicTacToe extends javax.swing.JFrame {
             if (comp instanceof JButton) {
                 JButton button = (JButton) comp;
                 button.addActionListener(createAction(button));
+
             }
         }
     }
@@ -157,6 +167,11 @@ public class JAVAIII_TicTacToe extends javax.swing.JFrame {
         lblCurrentTurn.setText("1");
 
         btResetGame.setText("Reset game");
+        btResetGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btResetGameActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new java.awt.GridLayout(3, 3, 10, 10));
@@ -277,6 +292,21 @@ public class JAVAIII_TicTacToe extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btClicked
 
+    private void btResetGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btResetGameActionPerformed
+        Component[] comps = jPanel1.getComponents();
+        for (Component comp : comps) {
+            if (comp instanceof JButton) {
+                JButton button = (JButton) comp;
+                button.setText("");
+                button.setBackground(Color.white);
+                button.setForeground(Color.black);
+                counter = 0;
+                String countStr = String.format("%d", counter);
+                lblCurrentTurn.setText(countStr);
+            }
+        }
+    }//GEN-LAST:event_btResetGameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -312,7 +342,7 @@ public class JAVAIII_TicTacToe extends javax.swing.JFrame {
         });
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt1_1;
     private javax.swing.JButton bt1_2;
