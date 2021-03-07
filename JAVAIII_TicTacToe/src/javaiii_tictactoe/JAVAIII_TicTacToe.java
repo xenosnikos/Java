@@ -38,12 +38,12 @@ public class JAVAIII_TicTacToe extends javax.swing.JFrame {
     }
 
     public void winEffect(JButton b1, JButton b2, JButton b3) {
-        b1.setBackground(Color.pink);
-        b2.setBackground(Color.pink);
-        b3.setBackground(Color.pink);
-        b1.setForeground(Color.red);
-        b2.setForeground(Color.red);
-        b3.setForeground(Color.red);
+        b1.setBackground(Color.green);
+        b2.setBackground(Color.green);
+        b3.setBackground(Color.green);
+        b1.setForeground(Color.white);
+        b2.setForeground(Color.white);
+        b3.setForeground(Color.white);
     }
 
     public void getTheWinner() {
