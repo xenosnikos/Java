@@ -312,10 +312,7 @@ public class JAVAIII_TicTacToe extends javax.swing.JFrame {
         });
     }
 
-    public void setTurn() {
-        lblCurrentPlayer.setText("X");
-
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt1_1;
     private javax.swing.JButton bt1_2;
