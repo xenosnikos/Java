@@ -48,6 +48,7 @@ public Clipboard clipboard= getToolkit().getSystemClipboard();
         emPaste = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 500));
 
         lblStatus.setText("...");
         lblStatus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -55,6 +56,7 @@ public Clipboard clipboard= getToolkit().getSystemClipboard();
 
         taDocument.setColumns(20);
         taDocument.setRows(5);
+        taDocument.setMinimumSize(new java.awt.Dimension(200, 200));
         jScrollPane1.setViewportView(taDocument);
 
         getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -135,6 +137,7 @@ public Clipboard clipboard= getToolkit().getSystemClipboard();
         setJMenuBar(jMenuBar1);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void miFileExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFileExitActionPerformed
